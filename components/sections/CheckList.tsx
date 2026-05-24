@@ -9,6 +9,7 @@
 import { useMemo, useState } from 'react';
 import { Reveal } from '@/components/ui/Reveal';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { SceneDecor } from '@/components/ui/SceneDecor';
 import { MonkeyMaru } from '@/components/icons/MonkeyMaru';
 import { CheckIcon } from '@/components/icons/UtilityIcons';
 
@@ -39,10 +40,11 @@ export function CheckList() {
   return (
     <section
       id="signs"
-      className="bg-jungle-50 py-14 dark:bg-jungle-900/40 sm:py-20"
+      className="relative overflow-hidden bg-jungle-50 py-14 dark:bg-jungle-900/40 sm:py-20"
       aria-labelledby="signs-heading"
     >
-      <div className="mx-auto max-w-3xl px-4">
+      <SceneDecor variant="soft" />
+      <div className="relative mx-auto max-w-3xl px-4 lg:max-w-4xl">
         <Reveal>
           <SectionHeading
             step="STEP 1 ｜ 気づき"
@@ -67,7 +69,7 @@ export function CheckList() {
               <MonkeyMaru decorative className="h-full w-full animate-floaty" />
             </div>
 
-            <ul className="grid gap-2 sm:gap-3">
+            <ul className="grid gap-2 sm:gap-3 lg:grid-cols-2">
               {SIGNS.map((sign, i) => {
                 const isOn = checked[i];
                 return (

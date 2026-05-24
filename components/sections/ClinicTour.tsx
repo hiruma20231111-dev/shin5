@@ -7,7 +7,9 @@
  */
 import { Reveal } from '@/components/ui/Reveal';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { SceneDecor } from '@/components/ui/SceneDecor';
 import { ClinicInterior } from '@/components/icons/ClinicInterior';
+import { MonkeyMaru } from '@/components/icons/MonkeyMaru';
 
 const ROOMS = [
   {
@@ -31,10 +33,15 @@ export function ClinicTour() {
   return (
     <section
       id="clinic"
-      className="bg-jungle-50 py-14 dark:bg-jungle-900/40 sm:py-20"
+      className="relative overflow-hidden bg-jungle-50 py-14 dark:bg-jungle-900/40 sm:py-20"
       aria-labelledby="clinic-heading"
     >
-      <div className="mx-auto max-w-5xl px-4">
+      <SceneDecor variant="lush" />
+      <MonkeyMaru
+        decorative
+        className="pointer-events-none absolute right-4 top-10 hidden h-20 w-20 animate-floaty sm:block lg:h-24 lg:w-24"
+      />
+      <div className="relative mx-auto max-w-5xl px-4">
         <Reveal>
           <SectionHeading
             step="STEP 7 ｜ 院内のご案内"

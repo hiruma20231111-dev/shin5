@@ -7,7 +7,9 @@
 
 import { Reveal } from '@/components/ui/Reveal';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { SceneDecor } from '@/components/ui/SceneDecor';
 import { ChevronIcon } from '@/components/icons/UtilityIcons';
+import { ParrotKoko } from '@/components/icons/ParrotKoko';
 
 const QA = [
   {
@@ -48,10 +50,15 @@ export function FAQ() {
   return (
     <section
       id="faq"
-      className="bg-white py-14 dark:bg-jungle-900 sm:py-20"
+      className="relative overflow-hidden bg-white py-14 dark:bg-jungle-900 sm:py-20"
       aria-labelledby="faq-heading"
     >
-      <div className="mx-auto max-w-3xl px-4">
+      <SceneDecor variant="soft" />
+      <ParrotKoko
+        decorative
+        className="pointer-events-none absolute right-2 top-10 hidden h-20 w-20 animate-floaty lg:block lg:h-28 lg:w-28"
+      />
+      <div className="relative mx-auto max-w-3xl px-4 lg:max-w-5xl">
         <Reveal>
           <SectionHeading
             step="STEP 8 ｜ Q&A"
@@ -61,7 +68,7 @@ export function FAQ() {
         </Reveal>
 
         <Reveal className="mt-8">
-          <ul className="flex flex-col gap-3">
+          <ul className="grid gap-3 lg:grid-cols-2">
             {QA.map((item, i) => (
               <li key={item.q}>
                 <details className="group rounded-2xl border-2 border-jungle-100 bg-jungle-50 transition open:border-jungle-300 dark:border-jungle-700 dark:bg-jungle-800">
