@@ -21,8 +21,11 @@ export function Hero() {
       aria-label="ファーストビュー"
     >
       {/* 背景ジャングル */}
-      <div className="absolute inset-x-0 top-0 -z-10 h-[55%] opacity-90">
+      {/* 動物がいる上部のみに収め、見出し下の本文が背景の濃緑と重ならないようにする */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[30%] opacity-90 sm:h-[34%]">
         <JungleScene className="h-full w-full" />
+        {/* 下端を強めに白色グラデでフェードさせ、見出し領域とのコントラストを確保 */}
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent via-sunshine-50/80 to-sunshine-50 dark:via-jungle-900/80 dark:to-jungle-900" />
       </div>
 
       <div className="mx-auto flex max-w-5xl flex-col items-center px-4">
@@ -55,14 +58,12 @@ export function Hero() {
         <h1 className="mt-4 text-center text-[26px] font-extrabold leading-snug text-jungle-900 dark:text-sunshine-100 sm:text-4xl md:text-5xl">
           お口の癖は、
           <br className="sm:hidden" />
-          <span className="bg-gradient-to-r from-jungle-600 to-sunshine-500 bg-clip-text text-transparent">
-            5歳からのサイン
-          </span>
+          <span className="text-sunshine-600 dark:text-sunshine-300">5歳からのサイン</span>
           かもしれません。
         </h1>
 
         {/* サブコピー */}
-        <p className="mt-4 max-w-xl text-center text-sm font-medium text-earth-700 dark:text-earth-100 sm:text-base">
+        <p className="mt-4 max-w-xl text-center text-sm font-bold text-jungle-800 dark:text-sunshine-100 sm:text-base">
           小児矯正・MFT・定期検診で、笑顔のままお口を育てる。
         </p>
 

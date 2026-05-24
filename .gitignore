@@ -28,3 +28,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# verification artifacts (not part of the LP deliverable)
+/scripts/
+/screenshots/
