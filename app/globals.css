@@ -1,0 +1,72 @@
+/**
+ * グローバルスタイル
+ * - Tailwind のレイヤー読込
+ * - ジャングル基調のベース背景
+ * - ダークモード時は森の夜（深緑＋琥珀色のスポット光）の温かみを維持
+ * - prefers-reduced-motion 設定の閲覧者にはアニメーションを止める
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-base: #fcfbf3;
+  --bg-soft: #f4efd9;
+  --text-base: #15411d;
+  --text-soft: #4a3a25;
+  --accent: #f59e0b;
+}
+
+.dark {
+  --bg-base: #122018;
+  --bg-soft: #1b2a20;
+  --text-base: #f4efd9;
+  --text-soft: #e3cba6;
+  --accent: #fbbf24;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-base);
+  font-feature-settings: 'palt';
+  letter-spacing: 0.01em;
+  line-height: 1.75;
+}
+
+/* セクションを区切る土と葉のオーガニックな波 */
+.wave-divider {
+  height: 32px;
+  background: radial-gradient(circle at 12px 0, var(--bg-base) 14px, transparent 15px) repeat-x;
+  background-size: 24px 32px;
+}
+
+/* スクロール連動 fade-in 用 */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 700ms ease-out, transform 700ms ease-out;
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

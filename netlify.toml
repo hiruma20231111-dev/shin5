@@ -1,0 +1,11 @@
+# Netlify 設定 — Next.js 静的エクスポート（output: 'export'）の成果物 `out/` を公開
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
